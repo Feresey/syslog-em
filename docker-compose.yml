@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  listen-log:
+    build:
+      dockerfile: 'listen-log/Dockerfile'
+      context: '.'
+
+    command:
+      './listen-log/listen-log :25555'
+    
+    network_mode: host
+    ports:
+      - 25555
+    
+  send-log:
+    build: 
+      dockerfile: 'send-log/Dockerfile'
+      context: '.'
+    
+    network_mode: host
+    ports:
+      - 25555
+
+    command:
+      './send-log/send-log send-log/test-input/clear_fast.log localhost:25555'
+
+    depends_on:
+      - listen-log
