@@ -2,10 +2,11 @@ package main
 
 import (
 	"bufio"
+	"flag"
 	"fmt"
 	"log"
 	"net"
-	"os"
+	"strconv"
 )
 
 func handleLogger(conn net.Conn) {
@@ -23,11 +24,12 @@ func handleLogger(conn net.Conn) {
 }
 
 func main() {
-	if len(os.Args) != 2 {
-		log.Fatal("./send-log :port")
-	}
-	port := os.Args[1]
-	input, err := net.Listen("tcp", port)
+	var port int
+
+	flag.IntVar(&port, "p", 45009, "tcp post to listen")
+	flag.Parse()
+
+	input, err := net.Listen("tcp", ":"+strconv.Itoa(port))
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -5,6 +5,7 @@ import (
 	"bufio"
 	"bytes"
 	"errors"
+	"flag"
 	"fmt"
 	"io"
 	"log"
@@ -98,59 +99,86 @@ func processFile(file io.Reader, writer net.Conn) error {
 }
 
 func main() {
-	if len(os.Args) != 3 {
-		log.Fatal("./send-log file host:port")
+	var (
+		filename string
+		host     string
+	)
+
+	flag.StringVar(&filename, "f", "", "file to use")
+	flag.StringVar(&host, "h", "", "host:port to send logs")
+	flag.Parse()
+
+	if len(host) == 0 || len(filename) == 0 {
+		flag.Usage()
+		os.Exit(1)
 	}
-	inputFileName, hostAddress := os.Args[1], os.Args[2]
-	inputFileExt := filepath.Ext(inputFileName)
 
-	fmt.Printf("File: %s, ext: %s, Host: %s\n", inputFileName, inputFileExt, hostAddress)
+	inputFileExt := filepath.Ext(filename)
 
-	logConn, err := net.Dial("tcp", hostAddress)
+	fmt.Printf("File: %s, ext: %s, Host: %s\n", filename, inputFileExt, host)
+
+	logConn, err := net.Dial("tcp", host)
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer logConn.Close()
+	log.Printf("Connection to %s established.", host)
 
 	switch inputFileExt {
 	case ".zip":
-		zipReader, err := zip.OpenReader(inputFileName)
-		if err != nil {
-			log.Fatal(err)
-		}
-		defer zipReader.Close()
-
-		for _, inputFile := range zipReader.File {
-			inputFileReader, err := inputFile.Open()
-			if err != nil {
-				log.Fatal(err)
-			}
-			log.Println("File:", inputFile.FileInfo().Name())
-			err = processFile(inputFileReader, logConn)
-			if err != nil {
-				log.Fatal(err)
-			}
-			inputFileReader.Close()
-		}
-
+		err = runZip(logConn, filename)
 	default:
-		inputFile, err := os.Open(inputFileName)
-		if err != nil {
-			log.Fatal(err)
-		}
-		defer inputFile.Close()
+		err = runFile(logConn, filename)
+	}
+	if err != nil {
+		log.Fatal("Process file(s): ", err)
+	}
+}
 
-		inputFileStat, err := inputFile.Stat()
+func runZip(conn net.Conn, filename string) error {
+	zipReader, err := zip.OpenReader(filename)
+	if err != nil {
+		return err
+	}
+	defer zipReader.Close()
+
+	for _, inputFile := range zipReader.File {
+		inputFileReader, err := inputFile.Open()
 		if err != nil {
-			log.Fatal(err)
+			return err
 		}
-		if inputFileStat.IsDir() {
-			log.Fatalln(inputFileName, " - is a dir")
-		} else {
-			err := processFile(inputFile, logConn)
-			if err != nil {
-				log.Fatal(err)
-			}
+
+		log.Println("File:", inputFile.FileInfo().Name())
+		err = processFile(inputFileReader, conn)
+		_ = inputFileReader.Close()
+		if err != nil {
+			return err
 		}
 	}
+
+	return nil
+}
+
+func runFile(conn net.Conn, filename string) error {
+	inputFile, err := os.Open(filename)
+	if err != nil {
+		return err
+	}
+	defer inputFile.Close()
+
+	inputFileStat, err := inputFile.Stat()
+	if err != nil {
+		return err
+	}
+
+	if inputFileStat.IsDir() {
+		log.Println(filename, " - is a dir. skipping...")
+	} else {
+		err := processFile(inputFile, conn)
+		if err != nil {
+			return err
+		}
+	}
+
+	return nil
 }
