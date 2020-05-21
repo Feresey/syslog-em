@@ -20,6 +20,9 @@ const timeFormatLayout string = "01/02/2006-15:04:05.000000"
 func parseEvent(fileScanner *bufio.Scanner, timeRegexp *regexp.Regexp) (time.Time, []byte) {
 	logLine := fileScanner.Bytes()
 	match := timeRegexp.FindIndex(logLine)
+	if len(match) == 0 {
+		log.Fatalln("Can't find timestamp")
+	}
 	timeString := logLine[match[0]:match[1]]
 	logLine = logLine[match[0]:]
 	eventTime, _ := time.Parse(timeFormatLayout, string(timeString))
@@ -48,7 +51,7 @@ func processFile(file io.Reader, writer net.Conn) error {
 
 	_, err := writer.Write(logLine)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 
 	for fileScanner.Scan() {
@@ -62,7 +65,7 @@ func processFile(file io.Reader, writer net.Conn) error {
 
 		_, err := writer.Write(logLine)
 		if err != nil {
-			log.Fatal(err)
+			return err
 		}
 
 	}
@@ -98,8 +101,11 @@ func main() {
 			if err != nil {
 				log.Fatal(err)
 			}
-
-			processFile(inputFileReader, logConn)
+			log.Println("File:", inputFile.FileInfo().Name())
+			err = processFile(inputFileReader, logConn)
+			if err != nil {
+				log.Fatal(err)
+			}
 			inputFileReader.Close()
 		}
 
@@ -117,7 +123,10 @@ func main() {
 		if inputFileStat.IsDir() {
 			log.Fatalln(inputFileName, " - is a dir")
 		} else {
-			processFile(inputFile, logConn)
+			err := processFile(inputFile, logConn)
+			if err != nil {
+				log.Fatal(err)
+			}
 		}
 	}
 }

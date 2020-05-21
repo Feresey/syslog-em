@@ -1,0 +1,2 @@
+05/20/2020-13:53:24.696421  [**] [1:2100366:8] GPL ICMP_INFO PING *NIX [**] [Classification: Misc activity] [Priority: 3] {ICMP} 10.0.5.88:8 -> 192.168.5.94:0
+05/20/2020-13:53:27.163180  [**] [1:2010937:3] ET SCAN Suspicious inbound to mySQL port 3306 [**] [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:65163 -> 192.168.5.94:3306
