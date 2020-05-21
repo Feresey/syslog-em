@@ -7,14 +7,14 @@ services:
       context: '.'
 
     command:
-      './listen-log/listen-log :25555'
+      './listen-log :25555'
     
     network_mode: host
     ports:
       - 25555
-    
+
   send-log:
-    build: 
+    build:
       dockerfile: 'send-log/Dockerfile'
       context: '.'
     
@@ -23,7 +23,7 @@ services:
       - 25555
 
     command:
-      './send-log/send-log send-log/test-input/clear_fast.log localhost:25555'
+      './send-log file.log localhost:25555'
 
     depends_on:
       - listen-log
