@@ -24,7 +24,9 @@ func parseEvent(fileScanner *bufio.Scanner, timeRegexp *regexp.Regexp) (time.Tim
 		return time.Time{}, []byte{}, fmt.Errorf("Empty string")
 	}
 	match := timeRegexp.FindIndex(logLine)
-	return time.Time{}, []byte{}, fmt.Errorf("Can't find timestamp")
+	if len(match) == 0 {
+		return time.Time{}, []byte{}, fmt.Errorf("Can't find timestamp")
+	}
 	timeString := logLine[match[0]:match[1]]
 	logLine = logLine[match[0]:]
 	eventTime, _ := time.Parse(timeFormatLayout, string(timeString))
