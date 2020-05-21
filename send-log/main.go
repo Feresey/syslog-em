@@ -22,7 +22,7 @@ type emptyStringError struct {
 }
 
 func (emptyStringError) Error() string {
-	return fmt.Sprintf("Empty string")
+	return "Empty string"
 }
 
 // Читает из сканера, парсит время, возвращает событие и время
@@ -45,7 +45,7 @@ func parseEvent(fileScanner *bufio.Scanner, timeRegexp *regexp.Regexp) (time.Tim
 // подменяет время события
 func replaceTimestamp(out []byte) {
 	systemTime := time.Now().Format(timeFormatLayout)
-	copy(out[:], systemTime)
+	copy(out, systemTime)
 }
 
 func processFile(file io.Reader, writer net.Conn) error {
@@ -74,7 +74,6 @@ func processFile(file io.Reader, writer net.Conn) error {
 		if err != nil {
 			var emptyError emptyStringError
 			if errors.Is(err, emptyError) {
-				err = nil
 				continue
 			} else {
 				fmt.Println("awd", err)
