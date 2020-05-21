@@ -1,11 +1,14 @@
 package main
 
 import (
+	"archive/zip"
 	"bufio"
 	"fmt"
+	"io"
 	"log"
 	"net"
 	"os"
+	"path/filepath"
 	"regexp"
 	"time"
 )
@@ -30,7 +33,7 @@ func replaceTimestamp(out []byte) {
 	copy(out[:], systemTime)
 }
 
-func processFile(file *os.File, writer net.Conn) error {
+func processFile(file io.Reader, writer net.Conn) error {
 	fileScanner := bufio.NewScanner(file)
 	if !fileScanner.Scan() {
 		return nil
@@ -72,7 +75,9 @@ func main() {
 		log.Fatal("./send-log file host:port")
 	}
 	inputFileName, hostAddress := os.Args[1], os.Args[2]
-	fmt.Printf("File: %s Host: %s\n", inputFileName, hostAddress)
+	inputFileExt := filepath.Ext(inputFileName)
+
+	fmt.Printf("File: %s, ext: %s, Host: %s\n", inputFileName, inputFileExt, hostAddress)
 
 	logConn, err := net.Dial("tcp", hostAddress)
 	if err != nil {
@@ -80,11 +85,39 @@ func main() {
 	}
 	defer logConn.Close()
 
-	inputFile, err := os.Open(inputFileName)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer inputFile.Close()
+	switch inputFileExt {
+	case ".zip":
+		zipReader, err := zip.OpenReader(inputFileName)
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer zipReader.Close()
 
-	processFile(inputFile, logConn)
+		for _, inputFile := range zipReader.File {
+			inputFileReader, err := inputFile.Open()
+			if err != nil {
+				log.Fatal(err)
+			}
+
+			processFile(inputFileReader, logConn)
+			inputFileReader.Close()
+		}
+
+	default:
+		inputFile, err := os.Open(inputFileName)
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer inputFile.Close()
+
+		inputFileStat, err := inputFile.Stat()
+		if err != nil {
+			log.Fatal(err)
+		}
+		if inputFileStat.IsDir() {
+			log.Fatalln(inputFileName, " - is a dir")
+		} else {
+			processFile(inputFile, logConn)
+		}
+	}
 }
