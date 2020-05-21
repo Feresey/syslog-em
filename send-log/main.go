@@ -3,6 +3,7 @@ package main
 import (
 	"archive/zip"
 	"bufio"
+	"bytes"
 	"fmt"
 	"io"
 	"log"
@@ -17,17 +18,18 @@ import (
 const timeFormatLayout string = "01/02/2006-15:04:05.000000"
 
 // Читает из сканера, парсит время, возвращает событие и время
-func parseEvent(fileScanner *bufio.Scanner, timeRegexp *regexp.Regexp) (time.Time, []byte) {
+func parseEvent(fileScanner *bufio.Scanner, timeRegexp *regexp.Regexp) (time.Time, []byte, error) {
 	logLine := fileScanner.Bytes()
-	match := timeRegexp.FindIndex(logLine)
-	if len(match) == 0 {
-		log.Fatalln("Can't find timestamp")
+	if bytes.Equal(logLine, []byte("")) {
+		return time.Time{}, []byte{}, fmt.Errorf("Empty string")
 	}
+	match := timeRegexp.FindIndex(logLine)
+	return time.Time{}, []byte{}, fmt.Errorf("Can't find timestamp")
 	timeString := logLine[match[0]:match[1]]
 	logLine = logLine[match[0]:]
 	eventTime, _ := time.Parse(timeFormatLayout, string(timeString))
 	logLine = append(logLine, byte('\n'))
-	return eventTime, logLine
+	return eventTime, logLine, nil
 }
 
 // подменяет время события
@@ -44,18 +46,28 @@ func processFile(file io.Reader, writer net.Conn) error {
 
 	timeRegexp := regexp.MustCompile(`(?m)\d{2}/\d{2}/\d{4}-\d{2}:\d{2}:\d{2}.\d{6}`)
 
-	prevEventTime, logLine := parseEvent(fileScanner, timeRegexp)
+	prevEventTime, logLine, err := parseEvent(fileScanner, timeRegexp)
+	if err != nil {
+		return err
+	}
 
 	replaceTimestamp(logLine)
 	fmt.Print(string(logLine))
 
-	_, err := writer.Write(logLine)
+	_, err = writer.Write(logLine)
 	if err != nil {
 		return err
 	}
 
 	for fileScanner.Scan() {
-		currentEventTime, logLine := parseEvent(fileScanner, timeRegexp)
+		currentEventTime, logLine, err := parseEvent(fileScanner, timeRegexp)
+		if err != nil {
+			if err == fmt.Errorf("Empty string") {
+
+			} else {
+				return err
+			}
+		}
 
 		timer := time.NewTimer(currentEventTime.Sub(prevEventTime))
 		<-timer.C
@@ -63,7 +75,7 @@ func processFile(file io.Reader, writer net.Conn) error {
 		replaceTimestamp(logLine)
 		fmt.Print(string(logLine))
 
-		_, err := writer.Write(logLine)
+		_, err = writer.Write(logLine)
 		if err != nil {
 			return err
 		}
