@@ -4,6 +4,7 @@ import (
 	"archive/zip"
 	"bufio"
 	"bytes"
+	"errors"
 	"fmt"
 	"io"
 	"log"
@@ -17,11 +18,18 @@ import (
 // timestamp format
 const timeFormatLayout string = "01/02/2006-15:04:05.000000"
 
+type emptyStringError struct {
+}
+
+func (emptyStringError) Error() string {
+	return fmt.Sprintf("Empty string")
+}
+
 // Читает из сканера, парсит время, возвращает событие и время
 func parseEvent(fileScanner *bufio.Scanner, timeRegexp *regexp.Regexp) (time.Time, []byte, error) {
 	logLine := fileScanner.Bytes()
 	if bytes.Equal(logLine, []byte("")) {
-		return time.Time{}, []byte{}, fmt.Errorf("Empty string")
+		return time.Time{}, []byte{}, emptyStringError{}
 	}
 	match := timeRegexp.FindIndex(logLine)
 	if len(match) == 0 {
@@ -64,9 +72,12 @@ func processFile(file io.Reader, writer net.Conn) error {
 	for fileScanner.Scan() {
 		currentEventTime, logLine, err := parseEvent(fileScanner, timeRegexp)
 		if err != nil {
-			if err == fmt.Errorf("Empty string") {
-
+			var emptyError emptyStringError
+			if errors.Is(err, emptyError) {
+				err = nil
+				continue
 			} else {
+				fmt.Println("awd", err)
 				return err
 			}
 		}
