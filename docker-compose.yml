@@ -7,8 +7,8 @@ services:
       context: '.'
 
     command:
-      './listen-log :25555'
-    
+      './listen-log -p 25555'
+
     network_mode: host
     ports:
       - 25555
@@ -23,7 +23,7 @@ services:
       - 25555
 
     command:
-      './send-log file.log localhost:25555'
+      './send-log -f file.log -h localhost:25555'
 
     depends_on:
       - listen-log
