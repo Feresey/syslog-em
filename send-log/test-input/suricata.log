@@ -1,0 +1,152 @@
+May 22 10:29:06 suricata suricata[20068]: [1:2100366:8] GPL ICMP_INFO PING *NIX [Classification: Misc activity] [Priority: 3] {ICMP} 10.0.5.72:8 -> 192.168.5.69:0
+May 22 10:34:16 suricata suricata[20068]: [1:2100366:8] GPL ICMP_INFO PING *NIX [Classification: Misc activity] [Priority: 3] {ICMP} 10.0.5.72:8 -> 192.168.5.69:0
+May 22 10:39:26 suricata suricata[20068]: [1:2100366:8] GPL ICMP_INFO PING *NIX [Classification: Misc activity] [Priority: 3] {ICMP} 10.0.5.72:8 -> 192.168.5.69:0
+May 22 10:44:36 suricata suricata[20068]: [1:2100366:8] GPL ICMP_INFO PING *NIX [Classification: Misc activity] [Priority: 3] {ICMP} 10.0.5.72:8 -> 192.168.5.69:0
+May 22 10:48:46 suricata suricata[20068]: [1:2022973:1] ET POLICY Possible Kali Linux hostname in DHCP Request Packet [Classification: Potential Corporate Privacy Violation] [Priority: 1] {UDP} 0.0.0.0:68 -> 255.255.255.255:67
+May 22 10:49:46 suricata suricata[20068]: [1:2100366:8] GPL ICMP_INFO PING *NIX [Classification: Misc activity] [Priority: 3] {ICMP} 10.0.5.72:8 -> 192.168.5.69:0
+May 22 10:53:53 suricata suricata[20068]: [1:2013028:4] ET POLICY curl User-Agent Outbound [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.5.64:48944 -> 31.3.245.133:80
+May 22 10:53:53 suricata suricata[20068]: [1:2100498:7] GPL ATTACK_RESPONSE id check returned root [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 31.3.245.133:80 -> 192.168.5.64:48944
+May 22 10:54:56 suricata suricata[20068]: [1:2100366:8] GPL ICMP_INFO PING *NIX [Classification: Misc activity] [Priority: 3] {ICMP} 10.0.5.72:8 -> 192.168.5.69:0
+May 22 11:00:06 suricata suricata[20068]: [1:2100366:8] GPL ICMP_INFO PING *NIX [Classification: Misc activity] [Priority: 3] {ICMP} 10.0.5.72:8 -> 192.168.5.69:0
+May 22 11:02:57 suricata suricata[20068]: [1:2001219:20] ET SCAN Potential SSH Scan [Classification: Attempted Information Leak] [Priority: 2] {TCP} 10.0.0.9:7598 -> 192.168.5.64:22
+May 22 11:05:16 suricata suricata[20068]: [1:2100366:8] GPL ICMP_INFO PING *NIX [Classification: Misc activity] [Priority: 3] {ICMP} 10.0.5.72:8 -> 192.168.5.69:0
+May 22 11:06:41 suricata suricata[20764]: [1:2101411:12] GPL SNMP public access udp [Classification: Attempted Information Leak] [Priority: 2] {UDP} 10.0.5.46:53255 -> 192.168.5.26:161
+May 22 11:06:42 suricata suricata[20764]: [1:2100366:8] GPL ICMP_INFO PING *NIX [Classification: Misc activity] [Priority: 3] {ICMP} 10.0.5.88:8 -> 192.168.5.94:0
+May 22 11:06:42 suricata suricata[20764]: [1:2010937:3] ET SCAN Suspicious inbound to mySQL port 3306 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:65163 -> 192.168.5.94:3306
+May 22 11:06:42 suricata suricata[20764]: [1:2010937:3] ET SCAN Suspicious inbound to mySQL port 3306 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:65164 -> 192.168.5.94:3306
+May 22 11:06:42 suricata suricata[20764]: [1:2002911:6] ET SCAN Potential VNC Scan 5900-5920 [Classification: Attempted Information Leak] [Priority: 2] {TCP} 10.0.5.88:65163 -> 192.168.5.94:5901
+May 22 11:06:42 suricata suricata[20764]: [1:2010936:3] ET SCAN Suspicious inbound to Oracle SQL port 1521 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:65163 -> 192.168.5.94:1521
+May 22 11:06:42 suricata suricata[20764]: [1:2010936:3] ET SCAN Suspicious inbound to Oracle SQL port 1521 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:65164 -> 192.168.5.94:1521
+May 22 11:06:42 suricata suricata[20764]: [1:2100366:8] GPL ICMP_INFO PING *NIX [Classification: Misc activity] [Priority: 3] {ICMP} 10.0.5.88:8 -> 192.168.5.64:0
+May 22 11:06:42 suricata suricata[20764]: [1:2010937:3] ET SCAN Suspicious inbound to mySQL port 3306 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:43888 -> 192.168.5.64:3306
+May 22 11:06:42 suricata suricata[20764]: [1:2010939:3] ET SCAN Suspicious inbound to PostgreSQL port 5432 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:43888 -> 192.168.5.64:5432
+May 22 11:06:42 suricata suricata[20764]: [1:2010936:3] ET SCAN Suspicious inbound to Oracle SQL port 1521 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:43888 -> 192.168.5.64:1521
+May 22 11:06:42 suricata suricata[20764]: [1:2002911:6] ET SCAN Potential VNC Scan 5900-5920 [Classification: Attempted Information Leak] [Priority: 2] {TCP} 10.0.5.88:43888 -> 192.168.5.64:5906
+May 22 11:06:42 suricata suricata[20764]: [1:2010935:3] ET SCAN Suspicious inbound to MSSQL port 1433 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:43888 -> 192.168.5.64:1433
+May 22 11:06:42 suricata suricata[20764]: [1:2001219:20] ET SCAN Potential SSH Scan [Classification: Attempted Information Leak] [Priority: 2] {TCP} 10.0.5.88:48493 -> 192.168.5.64:22
+May 22 11:06:42 suricata suricata[20764]: [1:2200025:1] SURICATA ICMPv4 unknown code [Classification: (null)] [Priority: 3] {ICMP} 10.0.5.88:2312 -> 192.168.5.64:0
+May 22 11:06:42 suricata suricata[20764]: [1:2200025:1] SURICATA ICMPv4 unknown code [Classification: (null)] [Priority: 3] {ICMP} 192.168.5.64:2304 -> 10.0.5.88:8
+May 22 11:06:42 suricata suricata[20764]: [1:2018489:3] ET SCAN NMAP OS Detection Probe [Classification: Attempted Information Leak] [Priority: 2] {UDP} 10.0.5.88:50061 -> 192.168.5.64:41512
+May 22 11:06:42 suricata suricata[20764]: [1:2100629:7] GPL SCAN nmap fingerprint attempt [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:50115 -> 192.168.5.64:22
+May 22 11:06:42 suricata suricata[20764]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:50119 -> 192.168.5.64:43576
+May 22 11:06:42 suricata suricata[20764]: [1:2100629:7] GPL SCAN nmap fingerprint attempt [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:50115 -> 192.168.5.64:22
+May 22 11:06:42 suricata suricata[20764]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:50119 -> 192.168.5.64:43576
+May 22 11:06:42 suricata suricata[20764]: [1:2100629:7] GPL SCAN nmap fingerprint attempt [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:50115 -> 192.168.5.64:22
+May 22 11:06:42 suricata suricata[20764]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:50119 -> 192.168.5.64:43576
+May 22 11:06:42 suricata suricata[20764]: [1:2100629:7] GPL SCAN nmap fingerprint attempt [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:50115 -> 192.168.5.64:22
+May 22 11:06:42 suricata suricata[20764]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:50119 -> 192.168.5.64:43576
+May 22 11:06:43 suricata suricata[20764]: [1:2001219:20] ET SCAN Potential SSH Scan [Classification: Attempted Information Leak] [Priority: 2] {TCP} 10.0.5.88:46338 -> 192.168.5.64:22
+May 22 11:06:43 suricata suricata[20764]: [1:2010937:3] ET SCAN Suspicious inbound to mySQL port 3306 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:43065 -> 192.168.5.64:3306
+May 22 11:06:43 suricata suricata[20764]: [1:2010936:3] ET SCAN Suspicious inbound to Oracle SQL port 1521 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:43065 -> 192.168.5.64:1521
+May 22 11:06:43 suricata suricata[20764]: [1:2002911:6] ET SCAN Potential VNC Scan 5900-5920 [Classification: Attempted Information Leak] [Priority: 2] {TCP} 10.0.5.88:43065 -> 192.168.5.64:5910
+May 22 11:06:43 suricata suricata[20764]: [1:2010935:3] ET SCAN Suspicious inbound to MSSQL port 1433 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:43065 -> 192.168.5.64:1433
+May 22 11:06:43 suricata suricata[20764]: [1:2010939:3] ET SCAN Suspicious inbound to PostgreSQL port 5432 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:43065 -> 192.168.5.64:5432
+May 22 11:06:43 suricata suricata[20764]: [1:2002910:6] ET SCAN Potential VNC Scan 5800-5820 [Classification: Attempted Information Leak] [Priority: 2] {TCP} 10.0.5.88:43065 -> 192.168.5.64:5811
+May 22 11:06:43 suricata suricata[20764]: [1:2010937:3] ET SCAN Suspicious inbound to mySQL port 3306 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:36115 -> 192.168.5.64:3306
+May 22 11:06:43 suricata suricata[20764]: [1:2010939:3] ET SCAN Suspicious inbound to PostgreSQL port 5432 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:36115 -> 192.168.5.64:5432
+May 22 11:06:43 suricata suricata[20764]: [1:2010938:3] ET SCAN Suspicious inbound to mSQL port 4333 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:36115 -> 192.168.5.64:4333
+May 22 11:06:44 suricata suricata[20764]: [1:2010935:3] ET SCAN Suspicious inbound to MSSQL port 1433 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:36115 -> 192.168.5.64:1433
+May 22 11:06:44 suricata suricata[20764]: [1:2010936:3] ET SCAN Suspicious inbound to Oracle SQL port 1521 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:36115 -> 192.168.5.64:1521
+May 22 11:06:47 suricata suricata[20764]: [1:2200025:1] SURICATA ICMPv4 unknown code [Classification: (null)] [Priority: 3] {ICMP} 10.0.5.88:2312 -> 192.168.5.64:0
+May 22 11:06:47 suricata suricata[20764]: [1:2200025:1] SURICATA ICMPv4 unknown code [Classification: (null)] [Priority: 3] {ICMP} 192.168.5.64:2304 -> 10.0.5.88:8
+May 22 11:06:47 suricata suricata[20764]: [1:2018489:3] ET SCAN NMAP OS Detection Probe [Classification: Attempted Information Leak] [Priority: 2] {UDP} 10.0.5.88:41910 -> 192.168.5.64:32170
+May 22 11:06:47 suricata suricata[20764]: [1:2100629:7] GPL SCAN nmap fingerprint attempt [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:41996 -> 192.168.5.64:22
+May 22 11:06:47 suricata suricata[20764]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:42000 -> 192.168.5.64:1
+May 22 11:06:47 suricata suricata[20764]: [1:2100629:7] GPL SCAN nmap fingerprint attempt [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:41996 -> 192.168.5.64:22
+May 22 11:06:47 suricata suricata[20764]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:42000 -> 192.168.5.64:1
+May 22 11:06:47 suricata suricata[20764]: [1:2100629:7] GPL SCAN nmap fingerprint attempt [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:41996 -> 192.168.5.64:22
+May 22 11:06:47 suricata suricata[20764]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:42000 -> 192.168.5.64:1
+May 22 11:06:47 suricata suricata[20764]: [1:2100629:7] GPL SCAN nmap fingerprint attempt [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:41996 -> 192.168.5.64:22
+May 22 11:06:47 suricata suricata[20764]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:42000 -> 192.168.5.64:1
+May 22 11:06:47 suricata suricata[20764]: [1:2200025:1] SURICATA ICMPv4 unknown code [Classification: (null)] [Priority: 3] {ICMP} 10.0.5.88:2312 -> 192.168.5.64:0
+May 22 11:06:47 suricata suricata[20764]: [1:2200025:1] SURICATA ICMPv4 unknown code [Classification: (null)] [Priority: 3] {ICMP} 192.168.5.64:2304 -> 10.0.5.88:8
+May 22 11:06:47 suricata suricata[20764]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:50237 -> 192.168.5.64:35685
+May 22 11:06:47 suricata suricata[20764]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:50237 -> 192.168.5.64:35685
+May 22 11:06:47 suricata suricata[20764]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:50237 -> 192.168.5.64:35685
+May 22 11:06:47 suricata suricata[20764]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:50237 -> 192.168.5.64:35685
+May 22 11:06:47 suricata suricata[20764]: [1:2200025:1] SURICATA ICMPv4 unknown code [Classification: (null)] [Priority: 3] {ICMP} 10.0.5.88:2312 -> 192.168.5.64:0
+May 22 11:06:47 suricata suricata[20764]: [1:2200025:1] SURICATA ICMPv4 unknown code [Classification: (null)] [Priority: 3] {ICMP} 192.168.5.64:2304 -> 10.0.5.88:8
+May 22 11:06:47 suricata suricata[20764]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:50237 -> 192.168.5.64:42089
+May 22 11:06:47 suricata suricata[20764]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:50237 -> 192.168.5.64:42089
+May 22 11:06:47 suricata suricata[20764]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:50237 -> 192.168.5.64:42089
+May 22 11:06:47 suricata suricata[20764]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:50237 -> 192.168.5.64:42089
+May 22 11:06:47 suricata suricata[20764]: [1:2101411:12] GPL SNMP public access udp [Classification: Attempted Information Leak] [Priority: 2] {UDP} 10.0.5.46:53255 -> 192.168.5.26:161
+May 22 11:06:47 suricata suricata[20764]: [1:2010939:3] ET SCAN Suspicious inbound to PostgreSQL port 5432 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.0.9:45053 -> 192.168.5.77:5432
+May 22 11:07:23 suricata suricata[20773]: [1:2100366:8] GPL ICMP_INFO PING *NIX [Classification: Misc activity] [Priority: 3] {ICMP} 10.0.5.88:8 -> 192.168.5.64:0
+May 22 11:07:23 suricata suricata[20773]: [1:2010937:3] ET SCAN Suspicious inbound to mySQL port 3306 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:36243 -> 192.168.5.64:3306
+May 22 11:07:23 suricata suricata[20773]: [1:2010936:3] ET SCAN Suspicious inbound to Oracle SQL port 1521 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:36243 -> 192.168.5.64:1521
+May 22 11:07:23 suricata suricata[20773]: [1:2002911:6] ET SCAN Potential VNC Scan 5900-5920 [Classification: Attempted Information Leak] [Priority: 2] {TCP} 10.0.5.88:36243 -> 192.168.5.64:5910
+May 22 11:07:23 suricata suricata[20773]: [1:2010939:3] ET SCAN Suspicious inbound to PostgreSQL port 5432 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:36243 -> 192.168.5.64:5432
+May 22 11:07:23 suricata suricata[20773]: [1:2010935:3] ET SCAN Suspicious inbound to MSSQL port 1433 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:36243 -> 192.168.5.64:1433
+May 22 11:07:23 suricata suricata[20773]: [1:2001219:20] ET SCAN Potential SSH Scan [Classification: Attempted Information Leak] [Priority: 2] {TCP} 10.0.5.88:41410 -> 192.168.5.64:22
+May 22 11:07:23 suricata suricata[20773]: [1:2200025:1] SURICATA ICMPv4 unknown code [Classification: (null)] [Priority: 3] {ICMP} 10.0.5.88:2312 -> 192.168.5.64:0
+May 22 11:07:23 suricata suricata[20773]: [1:2200025:1] SURICATA ICMPv4 unknown code [Classification: (null)] [Priority: 3] {ICMP} 192.168.5.64:2304 -> 10.0.5.88:8
+May 22 11:07:23 suricata suricata[20773]: [1:2018489:3] ET SCAN NMAP OS Detection Probe [Classification: Attempted Information Leak] [Priority: 2] {UDP} 10.0.5.88:41385 -> 192.168.5.64:33786
+May 22 11:07:23 suricata suricata[20773]: [1:2100629:7] GPL SCAN nmap fingerprint attempt [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:41425 -> 192.168.5.64:22
+May 22 11:07:23 suricata suricata[20773]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:41429 -> 192.168.5.64:31904
+May 22 11:07:23 suricata suricata[20773]: [1:2100629:7] GPL SCAN nmap fingerprint attempt [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:41425 -> 192.168.5.64:22
+May 22 11:07:23 suricata suricata[20773]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:41429 -> 192.168.5.64:31904
+May 22 11:07:23 suricata suricata[20773]: [1:2100629:7] GPL SCAN nmap fingerprint attempt [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:41425 -> 192.168.5.64:22
+May 22 11:07:23 suricata suricata[20773]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:41429 -> 192.168.5.64:31904
+May 22 11:07:23 suricata suricata[20773]: [1:2100629:7] GPL SCAN nmap fingerprint attempt [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:41425 -> 192.168.5.64:22
+May 22 11:07:23 suricata suricata[20773]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:41429 -> 192.168.5.64:31904
+May 22 11:07:23 suricata suricata[20773]: [1:2010937:3] ET SCAN Suspicious inbound to mySQL port 3306 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:48892 -> 192.168.5.64:3306
+May 22 11:07:23 suricata suricata[20773]: [1:2002910:6] ET SCAN Potential VNC Scan 5800-5820 [Classification: Attempted Information Leak] [Priority: 2] {TCP} 10.0.5.88:48892 -> 192.168.5.64:5811
+May 22 11:07:23 suricata suricata[20773]: [1:2002911:6] ET SCAN Potential VNC Scan 5900-5920 [Classification: Attempted Information Leak] [Priority: 2] {TCP} 10.0.5.88:48892 -> 192.168.5.64:5904
+May 22 11:07:23 suricata suricata[20773]: [1:2010936:3] ET SCAN Suspicious inbound to Oracle SQL port 1521 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:48892 -> 192.168.5.64:1521
+May 22 11:07:23 suricata suricata[20773]: [1:2010939:3] ET SCAN Suspicious inbound to PostgreSQL port 5432 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:48892 -> 192.168.5.64:5432
+May 22 11:07:23 suricata suricata[20773]: [1:2010935:3] ET SCAN Suspicious inbound to MSSQL port 1433 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:48892 -> 192.168.5.64:1433
+May 22 11:07:28 suricata suricata[20773]: [1:2100366:8] GPL ICMP_INFO PING *NIX [Classification: Misc activity] [Priority: 3] {ICMP} 10.0.5.88:8 -> 192.168.5.64:0
+May 22 11:07:28 suricata suricata[20773]: [1:2010937:3] ET SCAN Suspicious inbound to mySQL port 3306 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:52858 -> 192.168.5.64:3306
+May 22 11:07:28 suricata suricata[20773]: [1:2010936:3] ET SCAN Suspicious inbound to Oracle SQL port 1521 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:52858 -> 192.168.5.64:1521
+May 22 11:07:28 suricata suricata[20773]: [1:2002911:6] ET SCAN Potential VNC Scan 5900-5920 [Classification: Attempted Information Leak] [Priority: 2] {TCP} 10.0.5.88:52858 -> 192.168.5.64:5907
+May 22 11:07:28 suricata suricata[20773]: [1:2010935:3] ET SCAN Suspicious inbound to MSSQL port 1433 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:52858 -> 192.168.5.64:1433
+May 22 11:07:28 suricata suricata[20773]: [1:2010939:3] ET SCAN Suspicious inbound to PostgreSQL port 5432 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:52858 -> 192.168.5.64:5432
+May 22 11:07:28 suricata suricata[20773]: [1:2001219:20] ET SCAN Potential SSH Scan [Classification: Attempted Information Leak] [Priority: 2] {TCP} 10.0.5.88:48929 -> 192.168.5.64:22
+May 22 11:07:28 suricata suricata[20773]: [1:2200025:1] SURICATA ICMPv4 unknown code [Classification: (null)] [Priority: 3] {ICMP} 10.0.5.88:2312 -> 192.168.5.64:0
+May 22 11:07:28 suricata suricata[20773]: [1:2200025:1] SURICATA ICMPv4 unknown code [Classification: (null)] [Priority: 3] {ICMP} 192.168.5.64:2304 -> 10.0.5.88:8
+May 22 11:07:28 suricata suricata[20773]: [1:2018489:3] ET SCAN NMAP OS Detection Probe [Classification: Attempted Information Leak] [Priority: 2] {UDP} 10.0.5.88:48883 -> 192.168.5.64:40852
+May 22 11:07:28 suricata suricata[20773]: [1:2100629:7] GPL SCAN nmap fingerprint attempt [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:48944 -> 192.168.5.64:22
+May 22 11:07:28 suricata suricata[20773]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:48948 -> 192.168.5.64:37024
+May 22 11:07:28 suricata suricata[20773]: [1:2100629:7] GPL SCAN nmap fingerprint attempt [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:48944 -> 192.168.5.64:22
+May 22 11:07:28 suricata suricata[20773]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:48948 -> 192.168.5.64:37024
+May 22 11:07:28 suricata suricata[20773]: [1:2100629:7] GPL SCAN nmap fingerprint attempt [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:48944 -> 192.168.5.64:22
+May 22 11:07:28 suricata suricata[20773]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:48948 -> 192.168.5.64:37024
+May 22 11:07:28 suricata suricata[20773]: [1:2100629:7] GPL SCAN nmap fingerprint attempt [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:48944 -> 192.168.5.64:22
+May 22 11:07:28 suricata suricata[20773]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:48948 -> 192.168.5.64:37024
+May 22 11:07:28 suricata suricata[20773]: [1:2001219:20] ET SCAN Potential SSH Scan [Classification: Attempted Information Leak] [Priority: 2] {TCP} 10.0.5.88:37705 -> 192.168.5.64:22
+May 22 11:07:28 suricata suricata[20773]: [1:2010937:3] ET SCAN Suspicious inbound to mySQL port 3306 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:59194 -> 192.168.5.64:3306
+May 22 11:07:28 suricata suricata[20773]: [1:2010935:3] ET SCAN Suspicious inbound to MSSQL port 1433 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:59194 -> 192.168.5.64:1433
+May 22 11:07:28 suricata suricata[20773]: [1:2010939:3] ET SCAN Suspicious inbound to PostgreSQL port 5432 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:59194 -> 192.168.5.64:5432
+May 22 11:07:28 suricata suricata[20773]: [1:2002910:6] ET SCAN Potential VNC Scan 5800-5820 [Classification: Attempted Information Leak] [Priority: 2] {TCP} 10.0.5.88:59194 -> 192.168.5.64:5801
+May 22 11:07:28 suricata suricata[20773]: [1:2002911:6] ET SCAN Potential VNC Scan 5900-5920 [Classification: Attempted Information Leak] [Priority: 2] {TCP} 10.0.5.88:59194 -> 192.168.5.64:5907
+May 22 11:07:28 suricata suricata[20773]: [1:2010936:3] ET SCAN Suspicious inbound to Oracle SQL port 1521 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:59194 -> 192.168.5.64:1521
+May 22 11:07:45 suricata suricata[20782]: [1:2100366:8] GPL ICMP_INFO PING *NIX [Classification: Misc activity] [Priority: 3] {ICMP} 10.0.5.88:8 -> 192.168.5.64:0
+May 22 11:07:45 suricata suricata[20782]: [1:2010937:3] ET SCAN Suspicious inbound to mySQL port 3306 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:49620 -> 192.168.5.64:3306
+May 22 11:07:45 suricata suricata[20782]: [1:2002911:6] ET SCAN Potential VNC Scan 5900-5920 [Classification: Attempted Information Leak] [Priority: 2] {TCP} 10.0.5.88:49620 -> 192.168.5.64:5902
+May 22 11:07:45 suricata suricata[20782]: [1:2010939:3] ET SCAN Suspicious inbound to PostgreSQL port 5432 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:49620 -> 192.168.5.64:5432
+May 22 11:07:45 suricata suricata[20782]: [1:2010936:3] ET SCAN Suspicious inbound to Oracle SQL port 1521 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:49620 -> 192.168.5.64:1521
+May 22 11:07:45 suricata suricata[20782]: [1:2010935:3] ET SCAN Suspicious inbound to MSSQL port 1433 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:49620 -> 192.168.5.64:1433
+May 22 11:07:45 suricata suricata[20782]: [1:2001219:20] ET SCAN Potential SSH Scan [Classification: Attempted Information Leak] [Priority: 2] {TCP} 10.0.5.88:49344 -> 192.168.5.64:22
+May 22 11:07:45 suricata suricata[20782]: [1:2200025:1] SURICATA ICMPv4 unknown code [Classification: (null)] [Priority: 3] {ICMP} 10.0.5.88:2312 -> 192.168.5.64:0
+May 22 11:07:45 suricata suricata[20782]: [1:2200025:1] SURICATA ICMPv4 unknown code [Classification: (null)] [Priority: 3] {ICMP} 192.168.5.64:2304 -> 10.0.5.88:8
+May 22 11:07:45 suricata suricata[20782]: [1:2018489:3] ET SCAN NMAP OS Detection Probe [Classification: Attempted Information Leak] [Priority: 2] {UDP} 10.0.5.88:49413 -> 192.168.5.64:30946
+May 22 11:07:45 suricata suricata[20782]: [1:2100629:7] GPL SCAN nmap fingerprint attempt [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:49359 -> 192.168.5.64:22
+May 22 11:07:45 suricata suricata[20782]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:49363 -> 192.168.5.64:41872
+May 22 11:07:45 suricata suricata[20782]: [1:2100629:7] GPL SCAN nmap fingerprint attempt [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:49359 -> 192.168.5.64:22
+May 22 11:07:46 suricata suricata[20782]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:49363 -> 192.168.5.64:41872
+May 22 11:07:46 suricata suricata[20782]: [1:2100629:7] GPL SCAN nmap fingerprint attempt [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:49359 -> 192.168.5.64:22
+May 22 11:07:46 suricata suricata[20782]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:49363 -> 192.168.5.64:41872
+May 22 11:07:46 suricata suricata[20782]: [1:2100629:7] GPL SCAN nmap fingerprint attempt [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:49359 -> 192.168.5.64:22
+May 22 11:07:46 suricata suricata[20782]: [1:2101228:8] GPL SCAN nmap XMAS [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.17.0.2:49363 -> 192.168.5.64:41872
+May 22 11:07:46 suricata suricata[20782]: [1:2001219:20] ET SCAN Potential SSH Scan [Classification: Attempted Information Leak] [Priority: 2] {TCP} 10.0.5.88:46287 -> 192.168.5.64:22
+May 22 11:07:46 suricata suricata[20782]: [1:2010937:3] ET SCAN Suspicious inbound to mySQL port 3306 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:39139 -> 192.168.5.64:3306
+May 22 11:07:46 suricata suricata[20782]: [1:2010935:3] ET SCAN Suspicious inbound to MSSQL port 1433 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:39139 -> 192.168.5.64:1433
+May 22 11:07:46 suricata suricata[20782]: [1:2002911:6] ET SCAN Potential VNC Scan 5900-5920 [Classification: Attempted Information Leak] [Priority: 2] {TCP} 10.0.5.88:39139 -> 192.168.5.64:5901
+May 22 11:07:46 suricata suricata[20782]: [1:2010936:3] ET SCAN Suspicious inbound to Oracle SQL port 1521 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:39139 -> 192.168.5.64:1521
+May 22 11:07:46 suricata suricata[20782]: [1:2010939:3] ET SCAN Suspicious inbound to PostgreSQL port 5432 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:39139 -> 192.168.5.64:5432
+May 22 11:07:46 suricata suricata[20782]: [1:2002910:6] ET SCAN Potential VNC Scan 5800-5820 [Classification: Attempted Information Leak] [Priority: 2] {TCP} 10.0.5.88:39139 -> 192.168.5.64:5811
+May 22 11:07:46 suricata suricata[20782]: [1:2010937:3] ET SCAN Suspicious inbound to mySQL port 3306 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:33726 -> 192.168.5.64:3306
+May 22 11:07:46 suricata suricata[20782]: [1:2010936:3] ET SCAN Suspicious inbound to Oracle SQL port 1521 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:33726 -> 192.168.5.64:1521
+May 22 11:07:46 suricata suricata[20782]: [1:2010935:3] ET SCAN Suspicious inbound to MSSQL port 1433 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:33726 -> 192.168.5.64:1433
+May 22 11:07:46 suricata suricata[20782]: [1:2010939:3] ET SCAN Suspicious inbound to PostgreSQL port 5432 [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 10.0.5.88:33726 -> 192.168.5.64:5432

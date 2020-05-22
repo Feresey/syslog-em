@@ -17,7 +17,7 @@ import (
 )
 
 // timestamp format
-const timeFormatLayout string = "01/02/2006-15:04:05.000000"
+const timeFormatLayout string = "Jan 02 15:04:05"
 
 type emptyStringError struct {
 }
@@ -55,7 +55,7 @@ func processFile(file io.Reader, writer net.Conn) error {
 		return nil
 	}
 
-	timeRegexp := regexp.MustCompile(`(?m)\d{2}/\d{2}/\d{4}-\d{2}:\d{2}:\d{2}.\d{6}`)
+	timeRegexp := regexp.MustCompile(`(?m)[A-Z][a-z]{2} \d{2} \d{2}:\d{2}:\d{2}`)
 
 	prevEventTime, logLine, err := parseEvent(fileScanner, timeRegexp)
 	if err != nil {
