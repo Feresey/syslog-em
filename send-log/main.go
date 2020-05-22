@@ -49,17 +49,17 @@ func replaceTimestamp(out []byte) {
 	copy(out, systemTime)
 }
 
-func processFile(file io.Reader, writer net.Conn) error {
+func processFile(file io.Reader, writer net.Conn) (total int, err error) {
 	fileScanner := bufio.NewScanner(file)
 	if !fileScanner.Scan() {
-		return nil
+		return
 	}
 
 	timeRegexp := regexp.MustCompile(`(?m)[A-Z][a-z]{2} \d{2} \d{2}:\d{2}:\d{2}`)
 
 	prevEventTime, logLine, err := parseEvent(fileScanner, timeRegexp)
 	if err != nil {
-		return err
+		return 1, err
 	}
 
 	replaceTimestamp(logLine)
@@ -67,10 +67,11 @@ func processFile(file io.Reader, writer net.Conn) error {
 
 	_, err = writer.Write(logLine)
 	if err != nil {
-		return err
+		return 1, err
 	}
 
 	for fileScanner.Scan() {
+		total++
 		currentEventTime, logLine, err := parseEvent(fileScanner, timeRegexp)
 		if err != nil {
 			var emptyError emptyStringError
@@ -78,7 +79,7 @@ func processFile(file io.Reader, writer net.Conn) error {
 				continue
 			} else {
 				fmt.Println("awd", err)
-				return err
+				return total, err
 			}
 		}
 
@@ -92,12 +93,12 @@ func processFile(file io.Reader, writer net.Conn) error {
 
 		_, err = writer.Write(logLine)
 		if err != nil {
-			return err
+			return total, err
 		}
 
 	}
 
-	return nil
+	return total, nil
 }
 
 func main() {
@@ -126,61 +127,62 @@ func main() {
 	defer logConn.Close()
 	log.Printf("Connection to %s established.", host)
 
+	var total int
+
 	switch inputFileExt {
 	case ".zip":
-		err = runZip(logConn, filename)
+		total, err = runZip(logConn, filename)
 	default:
-		err = runFile(logConn, filename)
+		total, err = runFile(logConn, filename)
 	}
 	if err != nil {
 		log.Fatal("Process file(s): ", err)
 	}
+
+	log.Print("Lines processed: ", total)
 }
 
-func runZip(conn net.Conn, filename string) error {
+func runZip(conn net.Conn, filename string) (total int, err error) {
 	zipReader, err := zip.OpenReader(filename)
 	if err != nil {
-		return err
+		return 0, err
 	}
 	defer zipReader.Close()
 
 	for _, inputFile := range zipReader.File {
 		inputFileReader, err := inputFile.Open()
 		if err != nil {
-			return err
+			return 0, err
 		}
 
 		log.Println("File:", inputFile.FileInfo().Name())
-		err = processFile(inputFileReader, conn)
+		total, err = processFile(inputFileReader, conn)
 		_ = inputFileReader.Close()
 		if err != nil {
-			return err
+			return total, err
 		}
 	}
 
-	return nil
+	return total, err
 }
 
-func runFile(conn net.Conn, filename string) error {
+func runFile(conn net.Conn, filename string) (total int, err error) {
 	inputFile, err := os.Open(filename)
 	if err != nil {
-		return err
+		return
 	}
 	defer inputFile.Close()
 
 	inputFileStat, err := inputFile.Stat()
 	if err != nil {
-		return err
+		return
 	}
 
 	if inputFileStat.IsDir() {
 		log.Println(filename, " - is a dir. skipping...")
 	} else {
-		err := processFile(inputFile, conn)
-		if err != nil {
-			return err
-		}
+		total, err = processFile(inputFile, conn)
 	}
 
-	return nil
+	return total, err
 }
