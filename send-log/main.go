@@ -82,8 +82,10 @@ func processFile(file io.Reader, writer net.Conn) error {
 			}
 		}
 
-		timer := time.NewTimer(currentEventTime.Sub(prevEventTime))
-		<-timer.C
+		slp := currentEventTime.Sub(prevEventTime)
+		log.Print("Sleep: ", slp.String())
+		time.Sleep(slp)
+		prevEventTime = currentEventTime
 
 		replaceTimestamp(logLine)
 		fmt.Print(string(logLine))
